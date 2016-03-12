@@ -1,0 +1,17 @@
+{
+	"profiles": {
+		"detail": {
+			"width": 300,
+			"height": 300
+		},
+		"list": {
+			"width": 150,
+			"height": 150
+		},
+		"large": {
+			"width": 1000,
+			"height": 1000
+		}
+	},
+	"placeholderUri": "https://atoto.cz/images/no-product.png"
+}
