@@ -1,33 +1,45 @@
-Nette Sandbox
+atoto.cz hackhaton - image storage server
 =============
 
-Sandbox is a pre-packaged and pre-configured Nette Framework application
-that you can use as the skeleton for your new applications.
+Upload new image
+ - POST to http://images.hunka.cz/image/
+ - Request:
+ 
+```
+{
+    "url": "http://nickcavarretta.com.au/wp-content/uploads/2013/08/385085_394660707279936_1403636279_n.jpg"
+}
+```
 
-[Nette](https://nette.org) is a popular tool for PHP web development.
-It is designed to be the most usable and friendliest as possible. It focuses
-on security and performance and is definitely one of the safest PHP frameworks.
+ - Result:
+
+```
+{
+"status":{
+	"id":"b88c249049711d9b79295025d318caa6",
+	"filesize":34766,
+	"updated":{
+		"date":"2016-03-12 21:42:12.000000",
+		"timezone_type":3,
+		"timezone":"Europe/Prague"
+		}
+	},
+"inputValidation":{
+	"valid":true
+	}
+}
+```
 
 
-Installing
-----------
+Retrieve Image
 
-The best way to install Sandbox is using Composer. If you don't have Composer yet, download
-it following [the instructions](https://doc.nette.org/composer). Then use command:
+ - GET to http://images.hunka.cz/image/{imageId}[/{profile}]
 
-		composer create-project nette/sandbox my-app
-		cd my-app
+How to specify profiles ?
 
-Make directories `temp` and `log` writable. Navigate your browser
-to the `www` directory and you will see a welcome page. PHP 5.4 allows
-you run `php -S localhost:8888 -t www` to start the web server and
-then visit `http://localhost:8888` in your browser.
+`app/config/profiles.json`
 
-It is CRITICAL that whole `app`, `log` and `temp` directories are NOT accessible
-directly via a web browser! See [security warning](https://nette.org/security-warning).
+Can I use placeholder ?
 
-
-License
--------
-- Nette: New BSD License or GPL 2.0 or 3.0 (https://nette.org/license)
-- Adminer: Apache License 2.0 or GPL 2 (https://www.adminer.org)
+`app/config/profiles.json` again :-)
+ 
