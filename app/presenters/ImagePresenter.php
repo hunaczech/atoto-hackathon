@@ -62,7 +62,7 @@ class ImagePresenter extends BasePresenter
 
 		if ($method === 'GET') {
 			$this->setJsonResponse($this->imageFinder->find($id, $profile));
-		} elseif ($method === 'POST') {
+		} elseif ($method === 'POST' && !empty($this->httpRequest->getRawBody())) {
 			$this->setJsonResponse($this->imageManager->store(Json::decode($this->httpRequest->getRawBody(), TRUE)));
 		} elseif ($method === 'DELETE') {
 			$this->setJsonResponse($this->imageManager->flush(Json::decode($this->httpRequest->getRawBody(), TRUE)));
