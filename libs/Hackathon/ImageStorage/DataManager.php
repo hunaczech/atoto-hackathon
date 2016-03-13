@@ -4,6 +4,7 @@
 namespace Hackathon\ImageStorage;
 
 
+use Nette\Application\Responses\JsonResponse;
 use Nette\Object;
 use Nette\Utils\Image;
 use Nette\Utils\DateTime;
@@ -252,11 +253,18 @@ class DataManager extends Object
 
 	public function usePlaceholder()
 	{
-		$placeholderUri = $this->profilesLoader->get('placeholderUri');
-		if ($placeholderUri !== NULL) {
-			$image = Image::fromFile($placeholderUri);
-			$image->send();
+		$usePlaceholder = $this->profilesLoader->get('usePlaceholder');
+		if ($usePlaceholder === TRUE) {
+			$placeholderUri = $this->profilesLoader->get('placeholderUri');
+			if ($placeholderUri !== NULL) {
+				$image = Image::fromFile($placeholderUri);
+				$image->send();
+			}
+		} else {
+			return ['error' => 'ImageNotFound', 'code' => 404, 'message' => 'Image not found'];
+			
 		}
+
 	}
 
 }

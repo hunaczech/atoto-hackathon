@@ -13,5 +13,6 @@
 			"height": 1000
 		}
 	},
+	"usePlaceholder": false,
 	"placeholderUri": "https://atoto.cz/images/no-product.png"
 }

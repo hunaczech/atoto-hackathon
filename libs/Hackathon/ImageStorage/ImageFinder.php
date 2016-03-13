@@ -86,7 +86,7 @@ class Finder extends Object
 		try {
 			$this->dataManager->get($id,$profile);
 		} catch(UnknownImageFileException $e)   {
-			$this->dataManager->usePlaceholder();
+			return $this->dataManager->usePlaceholder();
 		}
 
 	}
