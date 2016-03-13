@@ -2,7 +2,7 @@ atoto.cz hackhaton - image storage server
 =============
 
 Upload new image
- - POST to http://images.hunka.cz/image/
+ - POST to http://images.hunka.cz/atoto/image/
  - Request:
  
 ```
@@ -33,7 +33,7 @@ Upload new image
 
 Retrieve Image
 
- - GET to http://images.hunka.cz/image/{imageId}[/{profile}]
+ - GET to http://images.hunka.cz/atoto/image/{imageId}[/{profile}]
 
 How to specify profiles ?
 
