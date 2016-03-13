@@ -17,6 +17,8 @@ class ProfilesLoader extends Object
 	 */
 	protected $configuration;
 
+
+
 	public function __construct($configurationFilePath)
 	{
 		$this->configuration = file_get_contents($configurationFilePath);
@@ -29,8 +31,9 @@ class ProfilesLoader extends Object
 	 * @return mixed
 	 * @throws \Nette\Utils\JsonException
 	 */
-	public function load($asArray=FALSE)  {
-		return Json::decode($this->configuration,$asArray);
+	public function load($asArray = FALSE)
+	{
+		return Json::decode($this->configuration, $asArray);
 	}
 
 
@@ -38,6 +41,7 @@ class ProfilesLoader extends Object
 	public function get($string)
 	{
 		$array = $this->load(TRUE);
+
 		return $array[$string];
 	}
 
@@ -46,6 +50,7 @@ class ProfilesLoader extends Object
 	public function loadProfile($profile)
 	{
 		$array = $this->get('profiles');
+
 		return $array[$profile];
 	}
 }

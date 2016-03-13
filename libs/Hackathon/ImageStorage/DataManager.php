@@ -262,7 +262,7 @@ class DataManager extends Object
 			}
 		} else {
 			return ['error' => 'ImageNotFound', 'code' => 404, 'message' => 'Image not found'];
-			
+
 		}
 
 	}

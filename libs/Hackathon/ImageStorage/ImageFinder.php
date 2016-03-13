@@ -54,8 +54,7 @@ class Finder extends Object
 		Configuration $imageStorageConfiguration,
 		ProfilesLoader $profilesLoader,
 		DataManager $dataManager
-		)
-	{
+	) {
 		$this->imageStorageConfiguration = $imageStorageConfiguration;
 		$this->profilesLoader = $profilesLoader;
 
@@ -73,19 +72,19 @@ class Finder extends Object
 	 * @throws Nette\Utils\UnknownImageFileException
 	 * @throws UndefinedProfileException
 	 */
-	public function find($id, $profile=NULL)
+	public function find($id, $profile = NULL)
 	{
 		if ($id === NULL) {
 			throw new ImageIdNotProvidedException("You didn't provider image ID");
 		}
 
-		if($profile !== NULL && !array_key_exists($profile, $this->profiles)) {
+		if ($profile !== NULL && !array_key_exists($profile, $this->profiles)) {
 			throw new UndefinedProfileException("This profile is not defined");
 		}
 
 		try {
-			$this->dataManager->get($id,$profile);
-		} catch(UnknownImageFileException $e)   {
+			$this->dataManager->get($id, $profile);
+		} catch (UnknownImageFileException $e) {
 			return $this->dataManager->usePlaceholder();
 		}
 
